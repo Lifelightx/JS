@@ -16,4 +16,6 @@ console.log(num + num2);
 
 // prime number
 
-for(let i=2; i<23; i++)
+for(let i=2; i<23; i++){
+    console.log(i);
+}
