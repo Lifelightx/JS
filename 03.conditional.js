@@ -18,3 +18,18 @@ if(age>18){
 else{
     console.log("You can't drive");
 }
+
+//code for leap year check
+
+let year = 3000;
+if((year % 400==0) || ((year % 100 !=0) && (year % 4 ==0))){
+    console.log(year,"is a leap year.");
+}
+else{
+    console.log(year,"is not a leap year");
+}
+
+let a = 10;
+let b = 5;
+
+(a>b)?console.log("True"):console.log("False");
