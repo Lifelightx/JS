@@ -49,4 +49,41 @@ console.log("Reverse: ",anarr1);
 console.log(delete arr[0]); //returns ture
 console.log(delete arr[0]); //returns ture
 
+let arrr = [2, 6, 9, 8, 1];
 
+let new_arr = [];
+for(let i=0; i<arrr.length;i++){
+    // const element = arrr[i];
+    new_arr.push(arrr[i]);
+}
+
+console.log(new_arr);
+
+let newArr = arrr.map(e=>{
+    return e**2;
+});
+
+
+
+console.log(newArr);
+
+const greaterThanSeven = (e)=>{
+    if(e>7){
+
+        return true;
+    }
+} 
+
+
+console.log(newArr.filter(greaterThanSeven));
+
+let arrN = [1,2,3,4,5,6];
+
+const reduc = (a,b)=>{
+    return a*b;
+}
+
+console.log(arrN.reduce(reduc));
+
+let m = Array.from("Jeebanjyoti")
+console.log(m)
