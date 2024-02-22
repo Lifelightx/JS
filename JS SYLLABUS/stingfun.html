@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <div id="box"></div>
+        </div>
+        <div class="ncontainer">
+            <div class="boxed"></div>
+        </div>
+    </nav>
+    
+
+    <script>
+        var str = "this is a box";
+        var position = str.indexOf('is');
+        console.log(position);
+
+        position = str.lastIndexOf('is');
+        console.log(position);
+
+        //substring from a string
+        var substr = str.slice(1,5); //can take negtive value
+        console.log(substr);
+        substr = str.substring(1,5); //can't take negative value
+        console.log(substr);
+        let substr1 = str.substr(1,5);
+        console.log(substr1);
+        
+        //replace
+
+        var replace = str.replace('is','that');
+        console.log(replace);
+
+        //to upper case
+        console.log(str.toUpperCase());
+        console.log(str.toLocaleLowerCase());
+
+        //concat
+        var newstr = str.concat('New string.');
+
+        //strwith white sopace:
+        var withwhiteSpaces = "   jeeeban         malllik";
+        console.log(withwhiteSpaces);
+        console.log(withwhiteSpaces.trim())
+        
+        //chat at
+        console.log(str.charAt(2));
+        console.log(str.charCodeAt(2));
+
+        document.getElementById("box").innerHTML = str;
+        document.querySelector(".ncontainer").innerHTML = str;
+    </script>
+</body>
+</html>

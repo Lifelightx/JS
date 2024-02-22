@@ -21,6 +21,10 @@ console.log(`Hello ${a} and his frinends name is ${friend}.`) //tamplete
 console.log("Hello \"meon\" come on.");
 console.log("JEEBAN\nJYOTI");
 
+
+//old method
+var newstring = new String("this is my string ");
+
 //string property
 let str = "Jeebanjyoti Mallik"
 
