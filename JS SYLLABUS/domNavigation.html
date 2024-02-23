@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulatihg DOM</title>
+</head>
+<body>
+    <div class="container" id="main">
+        <ul id="nav">
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact us</li>
+            <li>Servies</li>
+            <li>More</li>
+        </ul>
+        
+    </div>
+    <div class="container">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste maxime porro atque dolorum, hic eius molestiae architecto laudantium, odit fuga sequi distinctio, voluptatibus totam ea.</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus, ipsam!</p>
+    </div>
+    <div class="container" id="greet">
+        <h1>Hello Mere Dostos</h1>
+    </div>
+    <script>
+        let man = document.getElementById("main");
+        console.log(man);
+        let nav = document.getElementById("nav");
+        console.log(nav);
+        console.log(nav.innerHTML);
+        console.log(nav.innerText);
+
+        let container = document.getElementsByClassName('container');
+        console.log(container);
+        console.log(container[0])
+
+        container[0].style.backgroundColor = "rgb(122,453,122)";
+        container[0].style.display = "flex";
+
+        //css selector
+        let sel = document.querySelector(".container");
+        sel.style.color = "blue";
+
+        let sel1 = document.querySelector("#greet");
+        sel1.style.backgroundColor = "rgb(050,110,150)";
+        console.log(sel);
+
+        sel1 = document.querySelector('#nav>li');
+        console.log(sel1)
+        sel1.style.color = "red"
+
+        //querry selector all
+        let selAll = document.querySelectorAll(".container");
+        console.log(selAll);
+        
+        let selctall =document.querySelectorAll("#nav>li");
+        console.log(selctall);
+
+        //select by querry selector each li
+        selctall.forEach(li =>{
+            let valu1 =Math.floor(Math.random()*256);
+            let valu2 =Math.floor(Math.random()*256);
+            let valu3 =Math.floor(Math.random()*256);
+            li.style.color = `rgb(${valu1},${valu2},${valu3})`;
+
+        });
+        //get elements by tag
+        let gtbytag = document.getElementsByTagName('p');
+        console.log(gtbytag)
+        Array.from(gtbytag).forEach(e =>{
+            e.style.color = "red";
+            console.log(e);
+        })
+
+    </script>
+</body>
+</html>

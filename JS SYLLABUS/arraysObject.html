@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays and Object</title>
+    
+</head>
+<body>
+    
+    <script>
+        let myvar = 23;
+        let myvar1 = "string";
+        let myvar2 = true;
+
+        let myvar3 = undefined
+
+        let myobj = {
+            name:"Jeeban",
+            roll:23,
+            age:25,
+            gender:"male"
+        }
+        console.log(myobj);
+
+        //array is a special type of object
+
+        let names = ["Fitendra","Jeeban","Abhijit","Deepak","Manas","Prabhu"];
+        console.log(names);
+
+        //new is used t create a object
+        let array = new Array("Jeeban",34,2.4,true,undefined,null)
+        console.log(array);
+
+        console.log(array.length);
+        console.log(array.sort());
+        array.push("Ambhika");
+        console.log(array);
+        array.pop();
+        console.log(array);
+        array.shift();
+        console.log(array);
+        array.unshift("Ambhika");
+        console.log(array);
+
+        //acces properties of objects
+
+        let employee = {
+            name:"Jeebanjyoti",
+            age: 21,
+            salary:20000,
+            gender:"male"
+
+        }
+        console.log(employee['name']); //notation
+        console.log(employee.name);
+        console.log(employee.age);
+        console.log(employee.salary);
+        console.log(employee.gender);
+        
+    </script>
+</body>
+</html>

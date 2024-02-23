@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+
+    </div>
+    <script>
+        for(let i=0;i<5;i++){
+            console.log("Hello this is loop.");
+        }
+        let names = ["Fitendra","Abhi","Jeeban","Mansa"];
+        for(let i=0; i<names.length;i++){
+            //console.log(names[i]);
+            let element = names[i];
+            console.log(element);
+        }
+        names.forEach(function f(e){
+            console.log("Hello, "+e+" to modern javascript");
+        })
+
+        for(e of names){
+            console.log("Hello, "+e+" to modern javascript");
+
+        }
+
+        let obj = {
+            name:"jeeban",
+            roll:23,
+            salaray:20000
+        }
+        //is used to wrap 
+        for(key in obj){
+            console.log(`The ${key} of employee is ${obj[key]}`);
+        }
+        let i =1;
+
+        while(i<5){
+            console.log(`${i} is less than 5`);
+            i++;
+        }
+    </script>
+</body>
+</html>

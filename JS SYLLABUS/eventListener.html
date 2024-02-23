@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listener</title>
+    <style>
+        .container ul{
+            list-style-type:square;
+            list-style-position: inside;
+        }
+        .container li{
+            color: rgb(201, 0, 54);
+            font-family: poppins;
+
+        }
+        li::marker{
+            color: blue;
+        }
+        .btn{
+            background-color: rgb(0, 200, 255);
+            border-radius: 4px;
+            outline: none;
+            border: 2px solid rgba(128, 128, 128, 0);
+            box-shadow: 1px 1px 5px black;
+            padding: 7px 15px;
+            margin: 10px 0px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .btn:hover{
+            cursor: pointer;
+            background-color: blue;
+            color: aliceblue;
+
+            transition: all 0.3s ease-in-out;
+        }
+        #eventli{
+            color: rgb(255, 115, 0);
+            font-size: 18px;
+        }
+        #form{
+            display: flex;
+            flex-direction: column;
+            height: 350px;
+            width: 400px;
+            margin: 20px auto;
+        }
+        input{
+            width: 200px;
+        }
+        #form-btn{
+            margin-top: 10px;
+            width: 105px;
+        }
+        #pass-text{
+            width: 65px;
+        }
+    </style>
+</head>
+<body id="body">
+      
+    <div class="container">
+        <h1>Browser events</h1>
+        <ul>
+            <li>Click</li>
+            <li>Contextmenu</li>
+            <li>mouser over/mouse out</li>
+            <li>mouse move</li>
+            <li>submit</li>
+            <li>focus</li>
+            <li>Dom content loaded</li>
+            <li>trinsition end</li>
+
+        </ul>
+    </div>
+    <div class="container">
+        <h1>This is my heading</h1>
+        <p id="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, provident cum quis quos iure vero. Molestiae consectetur eaque numquam excepturi facilis praesentium cupiditate? Illum esse officia illo corporis commodi optio autem architecto, quisquam, sint sapiente eius nemo, quia dolor exercitationem ducimus tempora adipisci! Ullam libero, tempora quidem tempore molestiae a.</p>
+    </div>
+    <button class="btn" onclick="toggle()">Show/Hide</button>
+    <div class="container" id="para2">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut cumque excepturi quae ullam dolor aliquid aspernatur impedit molestiae eius. Et eaque vel cumque distinctio eligendi?
+    </div>
+    <div id="eventli">
+
+    </div>
+    <form action="" id="form">
+        <label for="user-name">User Name: </label>
+        <input type="text">
+        <label for="password">password: </label>
+        <input type="password" name="" id="password">
+        <button class="btn" id="pass-text" onclick="showPassword()">View</button>
+        <!-- <button type="submit" class="btn" id="form-btn">submit</button> -->
+    </form>
+
+
+    <!-- java script -->
+    <script>
+        let paragraph = document.getElementById("para");
+        paragraph.addEventListener('mouseover',function(){
+            alert("Mouse inside.")
+        });
+
+        paragraph.addEventListener('mouseout',function(){
+            alert("Mouse is outside of the para.")
+        })
+        let para2 = document.getElementById("para2"); 
+        para2.addEventListener('contextmenu',function(){
+            event.preventDefault();
+            console.log("context menu triggerd.")
+        })
+        //mouse move event
+        let eventli = document.getElementById("eventli");
+        let body = document.getElementById("body");
+        body.addEventListener("mousemove",function(event){
+            eventli.innerHTML = "mouse position: x ="+event.clientX + ", y = "+event.clientY;
+        })
+        //show password
+        function showPassword(){
+            let btn = document.getElementById("pass-text");
+            let input = document.getElementById("password");
+            if(input.type === "password"){
+                input.type = "text";
+            }
+            else{
+                input.type = "password";
+            }
+        }
+
+        function toggle(){
+            //let button = document.getElementById("btn");
+            let paragraph = document.getElementById("para");
+            if(paragraph.style.display != "none"){
+                paragraph.style.display = "none";
+            }
+            else{
+                paragraph.style.display = "block";
+            }
+            
+        }
+    </script>
+</body>
+</html>
