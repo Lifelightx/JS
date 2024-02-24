@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set time out and clear time out</title>
+</head>
+<body>
+    <div class="container">
+
+        <div>
+            <h3 id="time"></h3>
+        </div>
+    </div>
+    <script>
+        console.log("This is a tutorial for setTimeOut and ClearTimeOut");
+        //setTimeout --> allow us to run a function once after the interval of time.
+        //clearTimeOut --> allow us to run the function repeetedly after the interval of time.
+        function greet(name,age){
+            console.log("Hello, good morning " + name);
+            console.log("Your age is: " + age);
+        }
+
+        
+        greet("Jeeban",34); //without any delay
+
+        setTimeout(greet, 5000,"jeeban",23); //greet() will executed after 5sec
+        //setTimeout can take multiple parameters 
+        //that will be pass to the function
+        //the function should not call here in setTimeout . so it will exclude the parenthesis.
+
+        //clear time out is used to clear a setTImeout function
+
+        function sum(a,b){
+            let sum = a+b;
+            console.log(`sum of ${a} and ${b}: ${sum}`);
+        }
+
+        let timeout = setTimeout(sum,5000,4,5);
+        console.log(timeout);
+        clearTimeout(timeout);
+
+        //setinterval
+        setInterval(greet,1000,"Jeeban",21);
+         //it will call the greet function after each interval of 1000miliseconds
+        let Intervalset = setInterval(sum,1000,15,34);
+
+        console.log(Intervalset);
+        clearInterval(Intervalset);
+
+        
+        function displayTime(){
+            time = new Date();
+            console.log(time);
+            document.getElementById('time').innerHTML = time;
+        }
+        setInterval(displayTime,1000);
+
+    </script>
+</body>
+</html>

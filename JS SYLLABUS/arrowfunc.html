@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow function</title>
+</head>
+<body>
+    
+    <script>
+        let greet = ()=>"Hello world.";
+
+        let sum = (a,b)=> a+b;
+        let multiply = (a,b)=>{
+            let res = a*b;
+            return res;
+        }
+
+        console.log(`multi plication res: `+ multiply(2,3));
+
+        console.log(sum(2,3));
+        
+        console.log(greet())
+    </script>
+</body>
+</html>
