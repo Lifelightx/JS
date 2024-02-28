@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(255, 255, 255);
+    background-image: url(logo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+h1{
+    font-family: poppins;
+    color: rgb(0, 123, 255);
+    border: 2px solid white;
+    text-align: center;
+    background-color: rgb(214, 214, 214);
+    width: 100vw;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 93vh;
+    align-items: center;
+    backdrop-filter: blur(6px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.515);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.content-wrap{
+    display: flex;
+    height: 40vh;
+    width: 100vw;
+    
+    padding: 2rem;
+    
+}
+.banner{
+    width: 20vw;
+    font-size: 26px;
+    font-family: poppins;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(0, 255, 179);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    flex-grow: 1;
+}
+#taskInput{
+    padding: 5px 10px;
+    border-radius: 10px;
+    outline: none;
+    border: 2px solid rgb(0, 231, 142);
+    background-color: rgb(239, 255, 247);
+    font-size: 16px;
+    height: 50px;
+    width: 300px;
+    font-family: poppins;
+    
+}
+.todolist{
+    flex-grow: 1;
+}
+button{
+    padding: 8px 14px;
+    margin-left: 15px;
+    background-color: rgb(0, 255, 200);
+    border: 3px solid rgb(0, 218, 167);
+    border-radius: 12px;
+    font-family: poppins;
+
+    
+}
+button:hover{
+    cursor: pointer;
+}
+ul{ 
+    margin-top: 12px;
+    list-style: none;
+}
+li{
+    
+    font-family: poppins;
+    border: 2px solid rgba(0, 250, 162, 0.147);
+    background-color: rgba(231, 231, 231, 0.893);
+    border-radius: 10px;
+    margin: 5px 0;
+    width: 300px;
+    padding: 6px 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgb(0, 148, 99);
+    overflow-x: auto;
+    
+
+}
+.delete{
+    background-color: rgb(255, 217, 185);
+    padding: 1px 2px;
+    margin-right: 4px;
+    border-radius: 2px;
+}

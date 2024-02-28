@@ -116,6 +116,8 @@
             eventli.innerHTML = "mouse position: x ="+event.clientX + ", y = "+event.clientY;
         })
         //show password
+        document.querySelector('form').addEventListener("submit",function(event){
+            event.preventDefault()});
         function showPassword(){
             let btn = document.getElementById("pass-text");
             let input = document.getElementById("password");

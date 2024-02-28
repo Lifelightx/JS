@@ -4,10 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Date and Time</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DS+Digital&display=swap');
+        .container{
+            width: 550px;
+            height: 300px;
+            background-color: rgb(0, 119, 255);
+            margin:4rem auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            box-shadow: 2px 0 12px rgba(0, 0, 0, 0.422);
+
+        }
+        #showdate{
+            color: rgb(255, 196, 0);
+            font-family: 'DS Digital', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 50px;
+            font-weight: bold;
+            background-color: rgb(1, 5, 118);
+            padding: 10px 22px;
+            border: 3px solid rgba(13, 0, 255, 0.455);
+            border-radius: 25px;
+            height: auto;
+            width: 370px;
+            text-align: center;
+            box-shadow: 2px 2px 10px black;
+            
+        }
+
+        #date{
+            text-transform: uppercase;
+            color: aliceblue;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-shadow: 1px 1px 14px black;
+        }
+        
+    </style>
 </head>
-<body>
+<body id="body">
     <div class="container">
-        <h1>Date and time</h1>
+        <h1 id="date">DIGITAL CLOCK</h1>
+        <p id="showdate"></p>
     </div>
     <script>
         console.log("Date and time tutorial");
@@ -22,8 +62,37 @@
         let newDate = new Date("2024-01-22");
         console.log(newDate);
         
-        let newDate1 = new Date("2024-01-22");
-        console.log(newDate);
+        //let newdate = new Date(year,month,date,hour,minute,second, millisec)
+        let newDate1 = new Date(3020,4,16,5,43,75);
+        console.log(newDate1);
+
+        // showing time
+
+        let dateFind = new Date();
+        let yr = dateFind.getFullYear();
+        let month = dateFind.getMonth();
+        let date = dateFind.getDate();
+        console.log(dateFind.getMonth());
+        console.log("month: "+month);
+        
+        function fundate(){
+            let dateFind = new Date();
+            let hour = dateFind.getHours();
+            if(hour<18){
+                document.getElementById('body').style.backgroundColor = "white";
+            }
+            else{
+                document.getElementById('body').style.backgroundColor = "rgb(50, 45, 45)";
+
+            }
+            let min = dateFind.getMinutes();
+            let sec = dateFind.getSeconds();
+            let showdate = document.getElementById('showdate');
+            showdate.innerText = ` ${hour} : ${min} : ${sec}`;
+
+        }
+
+        setInterval(fundate,1000);
     </script>
 </body>
 </html>

@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: poppins;
+    box-sizing: border-box;
+}
+html{
+    height: 100%;
+    width: 100%;
+}
+body{
+    background-color: cadetblue;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card{
+    height: 450px;
+    width: 290px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.card img{
+    height: 50%;
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+    
+}
+.card h1{
+    text-align: center;
+    text-shadow: 2px 2px 2px grey;
+
+}
+
+#status{
+    text-align: center;
+    color: red;
+}
+
+button{
+    padding: 7px 9px;
+    border-radius: 5px;
+    border: none;
+    margin: 2px 4px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px grey;
+    
+}
+#btn-container{
+    margin: 25px 0;
+    display: flex;
+    gap: 9px;
+    justify-content: center;
+}
+#addFriend{
+    background-color: rgb(19, 187, 254);
+    
+    
+}
+#remove{
+    background-color: #dadada;
+}
+
