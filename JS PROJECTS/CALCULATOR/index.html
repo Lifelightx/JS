@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <div class="disply">
+            <input type="text" value="" id="displyforres" readonly>
+        </div>
+        <div class="st-row">
+            <input type="button" value="AC" onclick="clearDisplay()">
+            <input type="button" value="X" onclick="backspace()">
+            <input type="button" value="/" onclick="addTodisplay('/')">
+            <input type="button" value="*" onclick="addTodisplay('*')">
+            
+        </div>
+        <div class="nd-row">
+            <input type="button" value="7" onclick="addTodisplay('7')">
+            <input type="button" value="8" onclick="addTodisplay('8')">
+            <input type="button" value="9" onclick="addTodisplay('9')">
+            <input type="button" value="-" onclick="addTodisplay('-')">
+        </div>
+        <div class="rd-row">
+            <input type="button" value="4" onclick="addTodisplay('4')">
+            <input type="button" value="5" onclick="addTodisplay('5')">
+            <input type="button" value="6" onclick="addTodisplay('6')">
+            <input type="button" value="+" onclick="addTodisplay('+')">
+        </div>
+        <div class="th-row">
+            <input type="button" value="1" onclick="addTodisplay('1')">
+            <input type="button" value="2" onclick="addTodisplay('2')">
+            <input type="button" value="3" onclick="addTodisplay('3')">
+            <input type="button" value="%" onclick="addTodisplay('%')">
+        </div>
+        <div class="th5-row">
+            <input type="button" value="0" onclick="addTodisplay('0')">
+            <input type="button" value="00" onclick="addTodisplay('00')">
+            <input type="button" value="." onclick="addTodisplay('.')">
+            <input type="button" value="=" onclick="toCalculate('=')">
+        </div>
+    </div>
+</body>
+</html>

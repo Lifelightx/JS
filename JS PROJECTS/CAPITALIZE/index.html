@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capitalize</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: poppins;
+        }
+
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgb(191, 252, 252);
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: cornflowerblue;
+
+        }
+
+        #textcontainer {
+            height: 240px;
+            width: 60vw;
+            font-size: 24px;
+            resize: none;
+            border: 2px solid grey;
+            outline: none;
+            border-radius: 10px;
+            padding: 12px;
+        }
+
+        button {
+            background-color: rgb(1, 175, 143);
+            color: whitesmoke;
+            padding: 6px 12px;
+            border-radius: 5px;
+            border: 2px solid rgb(5, 5, 30);
+        }
+
+        #clearall {
+            background-color: rgb(255, 4, 4);
+
+        }
+        #element{
+            height: 53px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 id="element">Capitalize the text</h1>
+        </div>
+        <div class="textbox">
+            <textarea name="txt" id="textcontainer" cols="30" rows="10" placeholder="Enter text..."></textarea>
+        </div>
+        <div class="buttons">
+            <button id="btn" onclick="capitalize()">Capitalize</button>
+            <button id="clearall" onclick="clearall()">Clear All</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <!-- Element to contain animated typing -->
+    <span id="element"></span>
+
+    <!-- Load library from the CDN -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <!-- Setup and start animation! -->
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['My name is Jeeban', '&amp; This is Used to Capitalize.','This also Clear all the text'],
+            typeSpeed: 20,
+            loop:true,
+            cursorChar:'',
+        });
+    </script>
+</body>
+<script>
+    function capitalize() {
+        let text = document.querySelector("#textcontainer").value;
+        let capt = text.toUpperCase();
+        document.querySelector("#textcontainer").value = capt;
+    }
+    function clearall() {
+        document.querySelector("#textcontainer").value = "";
+
+    }
+</script>
+</body>
+
+</html>

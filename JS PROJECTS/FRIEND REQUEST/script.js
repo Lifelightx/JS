@@ -6,7 +6,6 @@ let status = document.querySelector("#status");
 function statusUpdate(){
     let status = document.querySelector("#status");
     let friend = document.querySelector("#addFriend");
-    let remove = document.querySelector("removed")
     status.innerHTML = "Friends";
     status.style.color = "green";
     friend.innerHTML = "✔ Friends";
@@ -17,3 +16,14 @@ function statusUpdate(){
     
 }
 
+
+let remove = document.querySelector("#removed")
+
+remove.addEventListener("click", function(){
+    let status = document.querySelector("#status");
+    let friend = document.querySelector("#addFriend");
+
+    status.innerHTML = "Stranger";
+    status.style.color = "red";
+    
+})
