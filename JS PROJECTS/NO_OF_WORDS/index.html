@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count no of words</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: poppins;
+            box-sizing: border-box;
+        }
+        body,html{
+            height: 100%;
+            width: 100%;
+
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-image: linear-gradient(rgba(255, 0, 0, 0.138),rgba(0, 0, 255, 0.182));
+        }
+        #counter{
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.29);
+            height: 70px;
+            width: 150px;
+            border: 0.5px solid rgba(22, 22, 40, 0.237);
+            border-radius: 20px;
+            font-size: 45px;
+            
+
+        }
+        .container{
+            height: 580px;
+            width: 80vw;
+        
+            color: rgb(5, 101, 91);
+            display: flex;
+            flex-direction: column;
+            min-width: fit-content;
+            align-items: center;
+        }
+        textarea{
+            font-size: 18px;
+            box-sizing: border-box;
+            resize: none;
+            margin: 12px 0;
+            height: 340px;
+            width: 80vw;
+            min-width: fit-content;
+            background-color: #E3EDF8;
+            outline: none;
+            border: 3px solid #e7f6ff;
+            border-radius: 9px;
+            padding: 12px;
+        }
+        button{
+            height: 3rem;
+            padding: 0 20px;
+            margin: 10px;
+            border: 0.5px solid #e7f6ff;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        #btn{
+            background-color: rgb(4, 174, 118);
+        }
+        #rest{
+            background-color: rgb(255, 19, 78);
+
+        }
+        #btn:hover{
+            background-color: rgb(0, 192, 109);
+            color: black;
+        }
+        #rest:hover{
+            background-color: rgb(207, 1, 53);
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="heading">
+            <h2>Count The words</h2>
+        </div>
+        <div id="counter">
+
+        </div>
+        <div id="box">
+            <textarea name="text" id="textbox" cols="30" rows="10" placeholder="Enter Text Here.."></textarea>
+        </div>
+        <div class="btns">
+            <button id="btn" onclick="countWords()">Count Words</button>
+            <button id="rest" onclick="reset()">Reset</button>
+        </div>
+    </div>
+    <script>
+        
+        function countWords(){
+            let text = document.getElementById("textbox").value;
+            let slice_words = text.split(" ");
+            if(slice_words == ""){
+                document.getElementById("counter").innerHTML = "0";
+
+            }
+            else{
+                var no_words = slice_words.length;
+                document.getElementById("counter").innerHTML = no_words;
+
+            }
+            
+        }
+        function reset(){
+            document.getElementById("textbox").value = "";
+            document.getElementById("counter").innerHTML = "";
+            
+        }
+
+    </script>
+</body>
+</html>

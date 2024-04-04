@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text to speech</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: poppins;
+        }
+
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0.129), rgba(0, 0, 255, 0.189));
+        }
+
+        .container {
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0.129), rgba(0, 0, 255, 0.189));
+            height: 450px;
+            width: 75vw;
+            border-radius: 23px;
+            box-shadow: 1px 1px 22px rgb(175, 175, 175);
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 12px;
+            color: rgb(57, 3, 83);
+        }
+
+        #textbox1 {
+            box-sizing: border-box;
+            border-radius: 23px;
+            width: 85%;
+            padding: 15px;
+            margin: 20px;
+            resize: none;
+            outline: none;
+            border: 3px solid rgb(63, 3, 70);
+            font-size: 15px;
+            background-color: rgb(5, 23, 37);
+            color: white;
+        }
+        #btn{
+            padding: 8px 20px;
+            outline: none;
+            border: 2px solid rgb(30, 45, 41);
+            border-radius: 12px;
+            background-color: rgba(183, 235, 237, 0.756);
+            cursor: pointer;
+            transition: all 1s ease-in-out;
+            font-size: 15px;
+        }
+        #btn:hover{
+            background-color: rgb(103, 243, 231);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="haeding">
+            <h2>Text to Speech</h2>
+        </div>
+        <textarea name="" id="textbox1" cols="30" rows="10" placeholder="Enter text.."></textarea>
+        <button id="btn" onclick="speechText()">speak</button>
+    </div>
+</body>
+<script>
+    function speechText(){
+        const text = document.getElementById("textbox1").value;
+        if (speechSynthesis in window) {
+            // Create an instance of SpeechSynthesisUtterance
+            const utterance = new SpeechSynthesisUtterance(text);
+            
+            // Optionally, you can set properties like voice, rate, pitch, etc.
+            // utterance.voice = speechSynthesis.getVoices()[0]; // specify voice
+            // utterance.rate = 1.0; // speech rate (default is 1.0)
+            // utterance.pitch = 1.0; // speech pitch (default is 1.0)
+        `
+            // Speak the text
+            speechSynthesis.speak(utterance);
+        } else {
+            alert('Sorry, your browser does not support text-to-speech!');
+        }
+        console.log(text);
+    }
+</script>
+</html>

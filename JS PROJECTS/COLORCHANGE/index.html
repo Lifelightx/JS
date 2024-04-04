@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Change</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: poppins;
+        }
+        html,body{
+            height: 100%;
+            width: 100%;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items:  center;
+        }
+        .box{
+            box-sizing: border-box;
+            height: 350px;
+            width: 350px;
+            border-radius: 123px 45px 142px 24px;
+            background-color: crimson;
+        }
+        button{
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 8rem;
+            margin: 10px 0;
+            padding: 12px;
+            background-color: #c2ead6c4;
+            border-radius: 12px 10px;
+            border: 2px solid grey;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="box"></div>
+        <button onclick="changeColor()">Change Color</button>
+    </div>
+    <script>
+        function changeColor(){
+            let r = Math.floor(Math.random()*256);
+            let g = Math.floor(Math.random()*256);
+            let b = Math.floor(Math.random()*256);
+            const box = document.querySelector(".box");
+            box.style.backgroundColor = `rgb(${r},${g},${b})` ; 
+            console.log(r)
+            console.log(g)
+            console.log(b)
+        }
+    </script>
+</body>
+</html>

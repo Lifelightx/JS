@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propose </title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: poppins;
+        }
+        body,html{
+            height: 100%;
+            width: 100%;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 23px 45px ;
+            padding: 32px;
+            height: 500px;
+            width: 95vw;
+            border: 2px solid rgb(115, 5, 128);
+            background-color: rgb(207, 135, 246);
+        }
+        button{
+            height: 50px;
+            width: 65px;
+            border-radius: 12px;
+            outline: none;
+            border: 3px solid rgb(67, 0, 72);
+        }
+        #question{
+            height: 6rem;
+
+        }
+        #question h3{
+            color: rgb(39, 0, 45);
+            font-size: 24px;
+        }
+        .btns{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #no{
+            position: absolute;
+            left: 50%;
+            transform: translate(0%);
+            transition: all 0.4s ease-in-out;
+        }
+        #yes{
+            position: absolute;
+            right: 50%;
+            transform: translate(-30%);
+            }
+        #quotes{
+            text-align: center;
+        }
+        #quest{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="question">
+            <h3 id="quest">Do You Love me?</h3>
+            <p id="quotes"></p>
+        </div>
+        <div class="btns">
+            <button class="button" id="yes" onclick="agreed()">Yes</button>
+            <button class="button" id="no" onmouseover="displace()" onclick="displace()">No</button>
+        </div>
+    </div>
+    <script>
+        function displace(){
+            let x = Math.floor(Math.random()*10-5);
+            let y = Math.floor(Math.random()*10-5);
+            let noBtn = document.querySelector("#no");
+            noBtn.style.transform = `translate(${x}rem,${y}rem)`
+        }
+        function agreed(){
+            let cont = document.querySelector("#quest");
+            cont.innerHTML = "<h3>Thank You ❤️</h3>";
+            let btns = document.querySelector(".btns");
+            btns.style.display = "none";
+            let quotes = document.querySelector("#quotes");
+            quotes.innerHTML = "<i>Zarurat nahi fikar ho tum kahin kehna pau woh Zikr ho tum.</i>"
+        }
+    </script>
+</body>
+</html>
