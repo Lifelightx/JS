@@ -1,76 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Simple Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .calculator {
-            width: 300px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-        }
-        input[type="text"] {
-            width: 100%;
-            margin-bottom: 10px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
-        input[type="button"] {
-            width: 48%;
-            padding: 10px;
-            margin-right: 2%;
-            margin-bottom: 10px;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-        input[type="button"]:last-child {
-            margin-right: 0;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-    <div class="calculator">
-        <input type="text" id="display" readonly>
-        <input type="button" value="7" onclick="addToDisplay('7')">
-        <input type="button" value="8" onclick="addToDisplay('8')">
-        <input type="button" value="9" onclick="addToDisplay('9')">
-        <input type="button" value="+" onclick="addToDisplay('+')">
-        <input type="button" value="4" onclick="addToDisplay('4')">
-        <input type="button" value="5" onclick="addToDisplay('5')">
-        <input type="button" value="6" onclick="addToDisplay('6')">
-        <input type="button" value="-" onclick="addToDisplay('-')">
-        <input type="button" value="1" onclick="addToDisplay('1')">
-        <input type="button" value="2" onclick="addToDisplay('2')">
-        <input type="button" value="3" onclick="addToDisplay('3')">
-        <input type="button" value="*" onclick="addToDisplay('*')">
-        <input type="button" value="0" onclick="addToDisplay('0')">
-        <input type="button" value="." onclick="addToDisplay('.')">
-        <input type="button" value="/" onclick="addToDisplay('/')">
-        <input type="button" value="=" onclick="calculate()">
-        <input type="button" value="C" onclick="clearDisplay()">
-    </div>
+    <p id="demo"></p>
 
-    <script>
-        function addToDisplay(value) {
-            document.getElementById('display').value += value;
-        }
+<label for="num">Enter a no.:
+<input type="text" id="num">
+<button onclick="function1()">submit</button>
 
-        function calculate() {
-            var displayValue = document.getElementById('display').value;
-            var result = eval(displayValue);
-            document.getElementById('display').value = result;
-        }
+<script>
 
-        function clearDisplay() {
-            document.getElementById('display').value = '';
-        }
-    </script>
+function function1(){
+    let x = document.getElementById("num").value;
+    let fact = factorial(x);
+    alert(fact);
+    //document.getElementById("demo").innerHTML = fact;
+
+}
+
+function factorial(n){
+	if(n==0){
+	    return 1;
+	}
+	else{
+	   return n * factorial(n-1);
+	}
+}
+
+</script>
 </body>
 </html>

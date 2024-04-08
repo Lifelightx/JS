@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            color: rgb(0, 0, 0);
+        }
+        
+        body{
+            background-color: #191128;
+        }
+        .container{
+            position: relative;
+            height: 100%;
+            width: 500px;
+            margin: 12%;
+            padding: 10px;
+        }
+        #heading{
+            color: whitesmoke;
+            font-family: poppins;
+            font-size: clamp(20px,10vw,40px);
+            border-bottom: 3px solid rgb(0, 201, 151);
+            margin-bottom:5px ;
+
+        }
+        #green-font{
+            color: rgb(0, 201, 151);
+        }
+        .input{
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            background-color: aliceblue;
+            width: 330px;
+            border-radius: 3px;
+        }
+        #input-field{
+            background-color: transparent;
+            padding: 10px 12px;
+            font-size: 16px;
+            color: rgb(40, 40, 40);
+            border: none;
+            outline: none;
+            width:300px ;
+        }
+        #cpy-img{
+            height: 25px;
+            cursor: pointer;
+            transition: all 1s ease-in;
+            
+        }
+        #cpy-img:hover{
+            filter: grayscale();
+        }
+        .button{
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            border-radius: 4px;
+            margin-top: 10px;
+            padding: 10px 3px;
+            background-color: rgb(246, 26, 26);
+            outline: none;
+            border: none;
+            cursor: pointer;
+
+        }
+        #btn{
+            
+            background-color: transparent;
+            font-size: 16px;
+            
+            border: none;
+            outline: none;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+        }
+        #gen-img{
+            width: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="heading">Generate a <br> <span id="green-font">Random Password</span></div>
+        <div class="input">
+            <input type="text" id="input-field" readonly>
+            <img src="copy.png" alt="" id="cpy-img" onclick="copyPassword()">
+        </div>
+        <div class="button">
+            <img src="generate.png" alt="" id="gen-img">
+            <button id="btn" onclick="genPassword()">Generate Password</button>
+        </div>
+    </div>
+
+    <script>
+        
+        let sAlpha = "abcdefghijklmanopqrstuvwxyz";
+        let cAlpha =  sAlpha.toUpperCase();
+        let nums = "1234567890";
+        let symbols = "!@#$%^&*(_-)+=,.?/";
+        let allChars = sAlpha+cAlpha+nums+symbols;
+        let passwordBox = document.getElementById("input-field");
+        function genPassword(){
+            let password = "";
+            password += sAlpha[Math.floor(Math.random()*sAlpha.length)];
+            password += cAlpha[Math.floor(Math.random()*cAlpha.length)];
+            password += nums[Math.floor(Math.random()*nums.length)];
+            password += symbols[Math.floor(Math.random()*symbols.length)];
+            
+            while(password.length<=12){
+                password += allChars[Math.floor(Math.random()*allChars.length)];
+                
+            }
+            passwordBox.value = password;
+        }
+
+        function copyPassword(){
+             passwordBox.select();
+             document.execCommand("copy");
+
+        }
+        
+    </script>
+</body>
+</html>
