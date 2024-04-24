@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food </title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: poppins;
+        }
+        body,html{
+            height: 100%;
+            width: 100%;
+        }
+        body{
+            overflow: hidden;
+        }
+        #heading{
+            color: blueviolet;
+            padding: 20px;
+        }
+        .e-card {
+            margin: 30px auto;
+            background: transparent;
+            box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.482);
+            position: relative;
+            width: 60vw;
+            height: 550px;
+            border-radius: 16px;
+            overflow: hidden;
+          }
+          
+          .wave {
+            position: absolute;
+            width: 990px;
+            height: 1020px;
+            opacity: 0.6;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            margin-left: -50%;
+            margin-top: -70%;
+            background: linear-gradient(744deg,#af40ff,#5b42f3 60%,#00ddeb);
+          }
+          
+          .icon {
+            width: 3em;
+            margin-top: -1em;
+            padding-bottom: 1em;
+          }
+          
+          .infotop {
+            text-align: center;
+            font-size: 20px;
+            position: absolute;
+            top: 5.6em;
+            left: 0;
+            right: 0;
+            color: rgb(255, 255, 255);
+            font-weight: 600;
+            font-family: 'Lexend', sans-serif;
+            font-optical-sizing: auto;
+  
+            font-style: normal;
+          }
+          
+          .name {
+            font-size: 14px;
+            font-weight: 100;
+            position: relative;
+            top: 1em;
+          }
+          
+          .wave:nth-child(2),
+          .wave:nth-child(3) {
+            top: 210px;
+          }
+          
+          .playing .wave {
+            border-radius: 40%;
+            animation: wave 3000ms infinite linear;
+          }
+          
+          .wave {
+            border-radius: 40%;
+            animation: wave 55s infinite linear;
+          }
+          
+          .playing .wave:nth-child(2) {
+            animation-duration: 4000ms;
+          }
+          
+          .wave:nth-child(2) {
+            animation-duration: 50s;
+          }
+          
+          .playing .wave:nth-child(3) {
+            animation-duration: 5000ms;
+          }
+          
+          .wave:nth-child(3) {
+            animation-duration: 45s;
+          }
+          
+          @keyframes wave {
+            0% {
+              transform: rotate(0deg);
+            }
+          
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+          @media screen and (max-width: 768px) {
+            .e-card {
+                
+                width: 356px;
+                height: 550px;
+                
+              }
+              .wave {
+              
+                width: 652px;
+                height: 840px;
+                
+              }
+          }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 id="heading">Food card</h2>
+        <div class="e-card playing">
+  <div class="image"></div>
+  
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+  
+
+      <div class="infotop">
+     
+        Entrees
+<br>
+<div class="name">
+    Rice <br>
+    Dal <br>
+    Chicken= <br>
+    Paneer Curry <br>
+    Chili Mushroom <br>
+    Mix Bhaji <br>
+    Dahi Vada <br>
+    Rice Pudding <br>
+
+</div>
+  </div>
+</div>
+
+    </div>
+</body>
+</html>

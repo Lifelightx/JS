@@ -5,11 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(rgba(255, 0, 0, 0.129),rgba(0, 0, 255, 0.112));
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: poppins;
 }
 body,html{
   height: 100%;
@@ -17,7 +17,7 @@ body,html{
 }
 .navbar{
   display: flex;
-  background-color: rgba(127, 255, 212, 0.69);
+  background-color: rgba(255, 255, 255, 0.69);
   height: 45px;
   align-items: center;
 }

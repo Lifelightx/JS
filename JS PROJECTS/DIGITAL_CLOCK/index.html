@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Rubik", sans-serif;
+        }
+
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: rgb(7, 0, 22);
+            background-image: radial-gradient(rgb(0, 36, 13), rgb(0, 0, 34));
+        }
+
+        #container {
+           
+            background-color: rgba(255, 255, 255, 0.032);
+            backdrop-filter: blur(2px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            width: 90vw;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #clock {
+            display: flex;
+            gap: 7px;
+            justify-content: center;
+            align-items: center;
+            font-family: "Rubik", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 60px;
+        }
+
+        #sec {
+            background-color: rgb(34, 237, 251);
+        }
+
+        .box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 13px;
+            height: 100px;
+            width: 100px;
+            background-color: chartreuse;
+            border-radius: 5px;
+        }
+
+        #day {
+            color: aliceblue;
+            margin-top: 10px;
+            padding: 6px 18px;
+            border-radius: 22px;
+            font-size: 17px;
+            background-color: rgb(231, 0, 85);
+        }
+       
+        
+    </style>
+    
+</head>
+
+<body>
+
+    <div id="container">
+        <div id="clock">
+            <p id="hour" class="box"></p>
+            <p id="min" class="box"></p>
+            <p id="sec" class="box"></p>
+        </div>
+        <p id="day"></p>
+    </div>
+
+
+    <script>
+
+        function updateTime() {
+            const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            let date = new Date();
+            let hour = String(date.getHours()).padStart(2, '0');
+            let min = String(date.getMinutes()).padStart(2, '0');
+            let sec = String(date.getSeconds()).padStart(2, '0');
+            let day = daysOfWeek[date.getDay()];
+
+            document.getElementById('hour').innerHTML = hour;
+            document.getElementById('min').innerHTML = min;
+            document.getElementById('sec').innerHTML = sec;
+            document.getElementById('day').innerHTML = day;
+        }
+
+
+        setInterval(updateTime, 1000);
+
+        updateTime();
+
+
+    </script>
+</body>
+
+</html>
