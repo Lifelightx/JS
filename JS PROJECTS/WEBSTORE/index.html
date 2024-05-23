@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online store</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: poppins;
+        }
+
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+        }
+
+        .box {
+            width: 25%;
+            height: 350px;
+            border: 1px solid rgb(229, 229, 229);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .logo {
+            height: 40px;
+            font-size: 27px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: darkorange;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="logo">KartIng</div>
+    <div class="container">
+        <div class="box">
+            
+        </div>
+        <div class="box">
+            
+        </div>
+        <div class="box">
+            
+        </div>
+        <div class="box">
+            
+        </div>
+    </div>
+    <div class="container">
+        <div class="box">
+           
+        </div>
+        <div class="box">
+           
+        </div>
+        <div class="box">
+            
+        </div>
+        <div class="box">
+            
+        </div>
+    </div>
+    
+
+    <script>
+        async function getDetails() {
+            let imgCont = document.getElementsByClassName('box');
+            Array.from(imgCont).forEach(async function (element) {
+                let id = Math.floor(Math.random() * 20) + 1; // Limit the range of random ID
+                console.log(id);
+                let url = `https://fakestoreapi.com/products/${id}`;
+                let response = await fetch(url);
+                let data = await response.json();
+                let img = data.image;
+                let title = data.title;
+                let price = data.price;
+                console.log(data);
+                element.innerHTML += `<img src="${img}" alt="Product Image" height="270" width="270">`;
+                element.innerHTML += `<p> ${title}</p>`;
+                element.style.padding = "2px 8px";
+                element.innerHTML += `<h3 style="color:red">$${price}</h3>`;
+                
+            });
+        }
+
+        window.onload = getDetails(); // Call getDetails function when window is loaded
+    </script>
+</body>
+
+</html>

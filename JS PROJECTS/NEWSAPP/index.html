@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News API</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: poppins;
+        }
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+        body{
+            
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: poppins;
+        }
+    </style>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        window.addEventListener("load",async function(){
+            const url = "https://newsapi.org/v2/everything?q=tesla&from=2024-04-18&sortBy=publishedAt&apiKey=0a2db4de5fa141ec847f9137bb9d1f24";
+            const response =await fetch(url);
+            const data = await response.json();
+            console.log(data);
+            console.log(data.articles[0]);
+            
+            
+            for(var i = 0; i < data.articles.length ; i++){
+                let newDiv = document.createElement('div');
+                newDiv.style.height ="100%";
+                newDiv.style.position = "relative";
+                newDiv.style.top = "50px";
+                newDiv.style.width = "700px";
+                newDiv.style.border = "1px solid #808080";
+                newDiv.style.margin = "10px";
+                newDiv.style.padding = "10px";
+                newDiv.style.borderRadius = "10px";
+                newDiv.style.backgroundColor ="#EBFFFB"
+                img = document.createElement("img");
+                newDiv.appendChild(img);
+                newDiv.textContent = data.articles[i].content;
+                document.body.appendChild(newDiv);
+            }
+        });
+    </script>
+</body>
+</html>

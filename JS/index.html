@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <p id="s"></p>
+    <p id="m"></p>
+    
+    
+    <script>
+        let a = 10;
+        console.log(a);
+        let name = 'shona';
+        let age = 45;
+        let para = document.getElementById('demo');
+        para.innerHTML = name + a;
+        document.getElementById("s").innerHTML = age;
+        //document.getElementById("m").innerHTML = "Hello "+ name + "Goode eve";
+        document.getElementById("m").innerHTML = `Hello ${name} Good eve`; //backticks left of 1 on keyboard
+
+    
+    </script>
+</body>
+</html>

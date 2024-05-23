@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV</title>
+    <style>
+        *{
+            margin: o;
+            padding: 0;
+            font-family: poppins;
+        }
+        body{
+            background-color: rgb(239, 239, 239);
+        }
+        .container{
+            margin: 0 auto;
+            width: 780px;
+            height: 100%;
+            background-color: rgb(255, 255, 255);
+            padding: 30px;
+        }
+        .headings{
+            background-color: rgb(237, 237, 237);
+            padding: 3px 6px;
+        }
+        #edu{
+            margin-left: 20px;
+        }
+        #skill{
+            margin-left: 20px;
+        }
+        .personal-details{
+            
+            text-align: center;
+            margin: 0 auto;
+            gap: 3px;
+        }
+        #sign{
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="heaing">
+            <div id="name">
+                <h2>Jeebanjyoti Mallik</h2>
+                <p>jeebanjyotimallik01@gmail.com</p>
+                <p>+91 6371317325</p>
+            </div>
+            <img src="photo.jpg" alt="">
+        </div>
+        <div class="objective">
+
+            <h3 class="headings">Objective</h3>
+            <p>I am fronend developer with knowledge of html, css,javascript , react js, searing for a entry level positon so i can implement my knowledge.</p>
+        </div>
+        <div class="education">
+            <h3 class="headings">Education</h3>
+            <div id="edu">
+                <ul>
+                    <li>
+                        I am pursuing Master in computer Application at Institute of management and information technology.
+                    </li>
+                    <li>I have completed my graduation in <b>physics</b> from F.M University in 2023 with CGPA 7.78</li>
+                    <li>I have completed my Intermediate from Nilgiri Degree college in 2020 with marks of 74%</li>
+                </ul>
+            </div>
+        </div>
+        <div class="projects">
+            <h3 class="headings">Projcts</h3>
+            <p>
+                <h4>Reciepe Share Application</h4>
+                <p>
+                    In this application one can search for a reciepe and using api my web page will fetch the recipe data.
+                </p>
+                <h4>Weather App</h4>
+                <p>
+                    This app provides user to find the weather condtion, wind flow and humidity using the api. <br>
+                    It helps people by directly providing there current location weather conditon. <br>
+
+                </p>
+            </p>
+        </div>
+        <div class="skills">
+            <h3 class="headings">Skills</h3>
+            <div id="skill">
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JAVASCRIPT</li>
+                    <li>REACT JS</li>
+                    <li>JAVA</li>
+                    <li>SQL</li>
+                    <li>PYTHON</li>
+                </ul>
+            </div>
+        </div>
+        <div class="personal">
+            <h3 class="headings">Personal Details</h3>
+            <div class="personal-details">
+                Father Name : Jaladhar Mallik <br>
+                Mohter Name : Jayanti Mallik <br>
+                Date of birth : 14.01.2003 <br>
+                Religion : Hindu <br>
+                Marratial Status : Unmarried <br>
+                Address : At/Po: Siadimal, Nilgiri, Balasore <br>
+            </div>
+        </div>
+        <div class="declare">
+            <h3 class="headings">Declaration</h3>
+                <p>I do hereby all the above information are true to best of my knowledge.</p>
+        </div>
+        <div>
+            <p id="date">Date:</p>
+            <p>Place: Cuttack</p>
+            <p id="sign">SIGNATURE</p>
+        </div>
+    </div>
+    <script>
+        let date = new Date();
+        let date1 = date.getDate();
+        let month = date.getMonth();
+        let year = date.getFullYear();
+        const getdateElement = document.getElementById('date');
+        getdateElement.innerHTML = `Date: ${date1}-${month+1}-${year} `;
+    </script>
+</body>
+</html>

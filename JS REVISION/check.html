@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Bullet Images</title>
+<style>
+    /* Style for the flower list */
+    #flower-list {
+        list-style-type: none; /* Remove default bullets */
+        padding: 0;
+    }
+
+    /* Style for the fruit list */
+    #fruit-list {
+        list-style-type: none; /* Remove default bullets */
+        padding: 0;
+    }
+
+    /* Custom bullet image for flowers */
+    #flower-list li {
+        background-image: url('flower.png'); /* Path to the flower image */
+        background-repeat: no-repeat;
+        background-size: 20px 20px; /* Adjust size of the bullet image */
+        padding-left: 25px; /* Add padding to the left of list items to accommodate the bullet image */
+        margin-bottom: 5px; /* Add margin between list items */
+    }
+
+    /* Custom bullet image for fruits */
+    #fruit-list li {
+        background-image: url('fruit.png'); /* Path to the fruit image */
+        background-repeat: no-repeat;
+        background-size: 20px 20px; /* Adjust size of the bullet image */
+        padding-left: 25px; /* Add padding to the left of list items to accommodate the bullet image */
+        margin-bottom: 5px; /* Add margin between list items */
+    }
+</style>
+</head>
+<body>
+
+<h2>Flowers</h2>
+<ul id="flower-list">
+    <li>Rose</li>
+    <li>Tulip</li>
+    <li>Lily</li>
+</ul>
+
+<h2>Fruits</h2>
+<ul id="fruit-list">
+    <li>Apple</li>
+    <li>Orange</li>
+    <li>Banana</li>
+</ul>
+
+</body>
+</html>

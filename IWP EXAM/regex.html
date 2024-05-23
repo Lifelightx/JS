@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <p id="dempro"></p>
+
+    <script>
+        const para = document.getElementById('demo');
+        let str = "This is a message from bput 7 4 2 1 2 ";
+        let pattern = /[^a-z]/g;
+        let res = str.match(pattern);
+        para.innerHTML = res; 
+
+        /* let text = "hello world this lworld is not good the kworld war 2";
+        let ptrn = 'world'
+        let regex1 = new RegExp(ptrn,'i');
+        res = regex1.exec(text);
+        const dem2 = document.getElementById('dempro')
+        dem2.innerHTML = res; */
+        let string = "the world is the best place"
+        pattern = /t|i/g;
+        res = string.match(pattern);
+        document.getElementById('dempro').innerHTML = res;
+    </script>
+</body>
+</html>

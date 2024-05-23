@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="string">Enter a string: </label>
+        <input type="text" name="string" id="input">
+        <button onclick="makeUppercase()" type="submit">To upper case</button>
+    </form>
+    
+
+    <script>
+        
+        function makeUppercase(){
+            const textValue = document.getElementById("input");
+            let value1 = textValue.value;
+            let upperCase = value1.toUpperCase();
+            textValue.value = upperCase;
+        }
+    </script>
+</body>
+</html>

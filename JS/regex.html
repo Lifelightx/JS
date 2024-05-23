@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="search"></p>
+    <p id="demo"></p>
+    <p id="test"></p>
+    <p id="exec"></p>
+
+    <script>
+        let str = "The workshop is designed by BPUT";
+
+        // let a = str.search('bput');
+        // console.log(a);
+
+        //regExp
+        let pattern = /bput/i;
+
+        let shona = str.search(pattern);
+        document.getElementById("search").innerHTML = shona;
+
+        shona = str.match(pattern);
+        document.getElementById("demo").innerHTML = shona;
+
+        shona = pattern.test(str);
+        document.getElementById("test").innerHTML = shona;
+        shona = pattern.exec(str);
+        document.getElementById('exec').innerHTML = shona;
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body,html{
+            height: 100%;
+            width: 100%;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #img{
+            border: 2px solid silver ;
+            height: 300px;
+            width: 300px;
+            border-radius: 12px;
+        }
+        button{
+            margin-top: 20px;
+            width: 250px;
+            height: 40px;
+            outline: none;
+            border: none;
+            border-radius: 10px;
+            background-color: cornflowerblue;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <img src="" id="img" alt="">
+    <button onclick="getImg()">click me For Dog</button>
+
+    <script>
+        let str = "The workshop is managed by cat BPUT at banglore in the banana university";
+        let pattern = /[abc]/g;
+        let res = str.match(pattern);
+
+        let rest = pattern.exec(str);
+
+
+        document.getElementById('demo').innerHTML = res;
+        document.getElementById('ex').innerHTML = rest;
+
+        async function getImg(){
+            let imgsrc = document.getElementById('img');
+            let url = "https://dog.ceo/api/breeds/image/random";
+            const response = await fetch (url);
+            let data = await response.json();
+            
+            imgsrc.src = data.message;
+        }
+    </script>
+</body>
+</html>

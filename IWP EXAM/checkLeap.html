@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="year">Enter year</label>
+    <input type="text" name="year" id="year1">
+    <button onclick="checkLeapyer()">Leap year</button>
+    <h2 id="demo"> </h2>
+    <script>
+        let yaerval = document.getElementById('year1');
+        let textshow = document.getElementById("demo");
+        function checkLeapyer(){
+            
+            
+            let val = yaerval.value;
+            if((val % 400 == 0) ||  (val % 100 !=0 && val %4 == 0)){
+
+                textshow.innerHTML = `${val} is a leap year`;
+            }
+            else{
+                textshow.innerHTML = `${val} is not a leap year`;
+
+            }
+        }
+    </script>
+</body>
+</html>
