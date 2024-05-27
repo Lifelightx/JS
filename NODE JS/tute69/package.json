@@ -1,0 +1,16 @@
+{
+  "name": "tute69",
+  "version": "1.0.0",
+  "description": "this is the best package i have ever seen",
+  "main": "tute69.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jeeban",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0",
+    "slugify": "^1.6.6"
+  }
+}
