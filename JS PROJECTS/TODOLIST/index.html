@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO Do list</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            display: flex;
+            background-color: rgb(26, 1, 48);
+            flex-direction: column;
+        }
+        .container{
+            height: 300px;
+            width: 600px;
+            border: 1px solid rgb(189, 189, 189);
+            margin: 50px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            box-shadow: 1px 1px 22px rgb(49, 49, 49);
+            border-radius: 30px;
+            
+        }
+        .header{
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+
+            flex-direction: column;
+        }
+        .header h1{
+            color: rgb(0, 59, 87);
+            font-weight: 700;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .contents{
+            display: flex;
+            flex-direction: column;
+            margin-top: 30px;
+            align-items: center;
+        }
+        #input{
+            width: 300px;
+            height: 40px;
+            border: 1px solid rgb(189, 189, 189);
+            border-radius: 10px;
+            padding: 8px;
+            font-size: 20px;
+            color: rgb(40, 40, 40);
+            outline: none;
+            border: 2px solid rgb(0, 59, 87);
+            
+        }
+        #btn{
+            width: 80px;
+            margin-top: 30px;
+            outline: none;
+            border: 2px solid rgb(11, 0, 58);
+            border-radius: 10px;
+            background-color: rgb(112, 179, 255);
+            padding: 10px;
+        }
+        .listtoDo{
+            height: 300px;
+            width: 400px;
+            /* background-color: rgb(255, 255, 255); */
+            margin: 0px auto;
+            border-radius: 20px;
+            padding: 20px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scroll-behavior: smooth;
+            scrollbar-color: rgb(189, 189, 189);
+        }
+        ol{
+            
+            margin: 0;
+            padding: 0;
+        }
+        ol li{
+            color: white;
+            padding: 10px 10px;
+            margin-top: 4px;
+            border-radius: 4px;
+            background-color: rgb(60, 43, 158);
+            display: flex;
+            justify-content:space-between ;
+            
+        }
+        .list-container{
+
+            display: flex;
+            height: 100%;
+            width: 40px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>TO DO LIST</h1>
+            <div class="contents">
+                <input type="text" id="input" placeholder="Enter your task..">
+                <button id="btn" onclick="addListItems()">ADD</button>
+            </div>
+        </div>
+    </div>
+    <div class="listtoDo">
+        <ol>
+            
+        </ol>
+    </div>
+    <script>
+        function addListItems(){
+            let input = document.getElementById("input").value;
+            if(input !== ''){
+                let list = document.createElement("li");
+                list.innerText = input;
+                list.style.cursor = 'pointer';
+               
+                document.querySelector("ol").appendChild(list);
+                document.getElementById('input').value = '';
+                const container = document.createElement('div');
+                const para1 = document.createElement('p');
+                const para2 = document.createElement('p');
+                para2.setAttribute('id', 'para2');
+                para1.textContent = '❌';
+                para2.textContent = '✅';
+                para1.addEventListener('click', function(){
+                    document.querySelector("ol").removeChild(list);
+                    
+                    
+                })
+                para2.addEventListener('click', function(){
+                    list.style.backgroundColor = 'rgb(19, 167, 0)';
+                    
+                })
+                container.setAttribute('class', 'list-container');
+                container.appendChild(para1);
+                container.appendChild(para2);
+                list.appendChild(container);
+                
+
+            }else{
+                alert("Please enter a task");
+            }
+
+        }
+        
+
+    </script>
+</body>
+</html>

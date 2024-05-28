@@ -83,6 +83,9 @@ button:hover{
 ul{ 
     margin-top: 12px;
     list-style: none;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    
 }
 li{
     
