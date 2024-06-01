@@ -1,0 +1,13 @@
+h1{
+            height: 100px;
+            width: 60vw;
+            background-color: rgb(186, 255, 186);
+            font: 200;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: poppins;
+            margin: 40px auto;
+            border: 1px solid white;
+            border-radius: 2px;
+        }

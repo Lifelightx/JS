@@ -1,0 +1,13 @@
+
+            Name: Jeebanjyoti Mallik
+            Age: 23 
+            Father's Name: Jaladhar Mallik 
+            Mohter's Name: Jayanti Mallik 
+            Gender: Male 
+            Adhar No: 530587218220
+            Address:  siadimal, nilgiri, Balasore
+            Phone No: 7750948876
+            Parent's Phone: 6371317325
+            
+
+            

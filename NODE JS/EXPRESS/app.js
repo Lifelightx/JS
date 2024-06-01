@@ -48,7 +48,7 @@ app.post('/',(req, res)=>{
     let outPutToWrite = `name = ${nam} age= ${age} gender = ${gender} address = ${address} more = ${more} `;
     fs.writeFileSync('output.txt',outPutToWrite);
     const para = {'message': 'your application successfully submitted'}
-    res.status(200).render('home.pug',para);
+    res.status(200).render('done.pug',para);
 })
 
 //START THE SERVER

@@ -1,0 +1,43 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: poppins;
+    font-weight: 200;
+}
+
+.container-contact{
+    position: relative;
+    top: 80px;
+
+}
+.myform{
+    margin-left: 3rem;
+}
+#myform{
+    
+    width: 650px;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    
+}
+.sub{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 600px;
+    margin-top: 15px;
+}
+
+input{
+    padding: 1px 10px;
+    width: 350px;
+    height: 40px;
+    outline: none;
+    border: none;
+    border-bottom: 3px solid rgb(0, 111, 185);
+    
+}

@@ -1,0 +1,313 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: poppins;
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+#navbar{
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+}
+
+ul{
+    display: flex;
+    background-color: rgb(13, 1, 33);
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+li{
+    list-style: none;
+    padding: 0 12px;
+}
+a{
+    text-decoration: none;
+    color: whitesmoke;
+    font-weight: 200;
+}
+a:hover{
+    color: rgb(0, 255, 0);
+}
+
+#introSection{
+    height: 600px;
+    background-image: url('https://images.unsplash.com/photo-1528392944531-e63de93f8751?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+}
+#container{
+        
+        
+        width: 700px;
+        padding: 20px 30px;
+}
+#subtext{
+    font-size: 49px;
+}
+#ndsubText{
+    font-size: 25px;
+}
+#rdsubText{
+    font-weight: 200;
+}
+#introText{
+    font-size: 10vw;
+    font-weight: 600;
+    
+}
+#btn, #misbtn{
+    cursor: pointer;
+    height: 35px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    background-color: rgb(0, 255, 157);
+    width: 120px;
+    color: rgb(40, 0, 63);
+    margin: 5px auto;
+}
+#missionSection{
+    
+    width: 100%;
+    overflow-x: hidden;
+    background-color: rgb(255, 255, 255);
+    
+}
+#missionContainer{
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+.leftContainer{
+    width: 630px;
+}
+#rightcontainer{
+    padding-left: 7rem;
+}
+#leftContent{
+    padding-left: 60px;
+}
+#misbtn{
+    margin-left: 60px;
+}
+#imgcontainer{
+    
+    padding: 30px;
+    border-radius: 30px 80px 120px 40px;
+    
+}
+#leftContent{
+    margin-top: 120px;
+    width: 500px;
+    font-size: 30px;
+    color: crimson;
+}
+
+#preballet,#musicalTheatre{
+    padding-right: 30px;
+    margin-top: 100px;
+    width: 380px;
+    margin-left: 104px;
+    margin-right: 130px;
+    font-weight: 200;
+}
+
+#authorContainer{
+    display: flex;
+    margin-top: 180px;
+    margin-bottom: 20px;
+}
+.rightContainer{
+    margin-left: 47px;
+
+}
+#imgauthor{
+    height: 500px;
+    
+    
+}
+#authorpara{
+    text-transform: uppercase;
+    color: orangered;
+}
+#authoHead{
+    font-weight: 100;
+    font-size: 30px;
+    margin-top: 30px;
+    
+    width: 300px;
+    
+}
+#notice{
+    margin-top: 10px;
+    width: 380px;
+    font-weight: 100;
+}
+.satisfy-regular{
+    font-family: "Satisfy";
+    font-weight: 200;
+    font-style: normal;
+    font-size: 30px;
+    margin-top: 40px;
+}
+#designation{
+    font-weight: 100;
+}
+#sponsherSection{
+    height: auto;
+    background-color: whitesmoke;
+    
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+}
+.card{
+    height: 270px;
+    width: 25%;
+    background-color: rgb(247, 255, 255);
+    margin: 40px 20px;
+    border: 2px solid rgb(201, 201, 201);
+    border-radius: 5px;
+    box-shadow: 1px 1px 20px rgb(206, 206, 206);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 15px;
+    justify-content: center;
+    font-weight: 100;
+    
+}
+.card-head{
+    color: rgb(0, 81, 255);
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+.container1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.container{
+    overflow-x: auto;
+}
+.rev-card {
+    padding: 25px;
+    margin: 40px 10px;
+    height: auto;
+    width: 450px;
+    border: 1px solid rgb(199, 199, 199);
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: 200;
+}
+.manimg{
+    height: 100px;
+    
+}
+#review{
+    margin-top: 29px;
+    font-weight: 200;
+    font-size: 29px;
+    width: 420px;
+    text-align: center;
+    color: rgb(12, 0, 24);
+}
+#sponsherSection h2{
+    width: 560px;
+    height: 40px;
+    display: flex;
+    margin: 0px auto;
+    justify-content: center;
+    color: orangered;
+    padding-top: 10px;
+}
+#footer{
+    height: 450px;
+    background-color: rgb(1, 15, 41);
+
+}
+
+.footerContainer{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-weight: 200;
+}
+.footer1stContainer{
+    height: 100px;
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+}
+.footer2ndContainer{
+    height: 100%;
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#name{
+    margin-left: 7px;
+    color: orangered;
+}
+.smallcards{
+    height: 270px;
+    width: 20%;
+    margin: 10px;
+    
+    font-weight: 100;
+    color: whitesmoke;
+    
+
+}
+.smallcards h4{
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+#tag{
+    font-size: 24px;
+    color: rgb(255, 60, 0);
+}
+.smallcards p{
+    margin: 7px 5px;
+    font-size: 14px;
+}
+.footer3rdContainer{
+    display: flex;
+    font-weight: 100;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    width: 100%;
+    height: 50px;
+}

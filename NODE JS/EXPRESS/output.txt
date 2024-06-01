@@ -1,1 +1,1 @@
-name = Jeebanjyoti Mallik age= 23 gender = Male address =  more =    
+name =  age=  gender =  address =  more =  
