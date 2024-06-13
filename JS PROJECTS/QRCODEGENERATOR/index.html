@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR code generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: poppins;
+        }
+
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(135deg, rgb(25, 0, 42), rgb(0, 0, 38));
+        }
+
+        .container {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            width: 450px;
+            padding: 10px 40px;
+            border-radius: 10px;
+        }
+
+        #label {
+            padding: 15px 0;
+            font-weight: 400;
+            color: blueviolet;
+        }
+
+        input {
+            height: 40px;
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid grey;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .imgcontainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #qrimg {
+            transition: height 0.5s ease-in-out; 
+            height: 0; 
+            overflow: hidden; 
+        }
+
+        button {
+            width: 70%;
+            margin: 10px auto;
+            height: 40px;
+            background-color: blueviolet;
+            color: white;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p id="label">Enter text or URL</p>
+        <input type="text" id="content" placeholder="Enter URL">
+        <div class="imgcontainer" id="imgBox">
+            <img src="" alt="" id="qrimg">
+        </div>
+        <button id="btn">Generate QR</button>
+    </div>
+    <script>
+        
+        const btn = document.getElementById('btn');
+
+        btn.addEventListener('click', () => {
+            const input = document.getElementById('content');
+            const input_value = input.value;
+            const qrImg = document.getElementById('qrimg');
+
+            
+            if (input_value.trim() !== '') {
+                qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${input_value}`;
+                qrImg.onload = () => {
+                    qrImg.style.height = '150px'; 
+                };
+                input.value = '';
+            } else {
+                alert('Please enter some text or URL');
+            }
+        });
+    </script>
+</body>
+
+</html>
