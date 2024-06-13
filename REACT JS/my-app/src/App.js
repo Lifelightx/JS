@@ -8,8 +8,7 @@ function App() {
     <>
       {/* navbar componenet that is present in navbar.js component */}
       <Navbar name="TextUtils" aboutText="About" /> 
-      <div><p>Hello</p></div>
-      <h1>Prabhu</h1>
+      
     </>
   );
 }

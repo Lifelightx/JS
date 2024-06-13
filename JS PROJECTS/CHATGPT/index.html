@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGpt</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: poppins;
+            font-weight: 200;
+        }
+
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(218, 250, 250);
+        }
+
+        .container {
+            height: 450px;
+            width: 350px;
+            background-color: white;
+            border-radius: 15px;
+            border: 1px solid rgb(199, 199, 199);
+        }
+
+        .heading {
+            position: relative;
+            border-radius: 15px 15px 0 0;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            font-size: 18px;
+            color: whitesmoke;
+            font-weight: 400;
+            text-align: center;
+            background-color: blueviolet;
+        }
+
+        .message-container {
+            height: 350px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scroll-behavior: smooth;
+            background-color: rgb(251, 238, 255);
+        }
+
+
+        .message {
+            margin: 10px;
+            color: white;
+            background-color: blueviolet;
+            padding: 5px 10px;
+            max-width: 75%;
+            font-size: 14px;
+            border-radius: 7px;
+
+        }
+
+        .outgoing {
+            float: right;
+            width: auto;
+            clear: both;
+        }
+
+        .incoming {
+            float: left;
+            clear: both;
+            width: auto;
+            background-color: white;
+            color: rgb(31, 5, 48);
+        }
+
+        #sendimg {
+            height: 30px;
+            width: 30px;
+            cursor: pointer;
+        }
+
+        .message-input {
+            height: 50px;
+            position: relative;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        #input-text {
+            width: 80%;
+            height: 30px;
+            outline: none;
+            border: none;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="chatbox">
+            <header class="heading">
+                ChatGPT
+            </header>
+            <div class="message-container" id="msg-container">
+                <div class="incoming message">Hello There, how can i help you?</div>
+                <div class="outgoing message">Hello This side is jeeban </div>
+
+            </div>
+            <div class="message-input">
+                <input type="text" id="input-text" placeholder="Enter text.." required>
+                <img src="send.png" alt="" id="sendimg">
+            </div>
+        </div>
+    </div>
+    <script>
+
+        const button = document.getElementById('sendimg');
+        const appendtext = () => {
+            const msg_container = document.getElementById('msg-container')
+            const input = document.getElementById('input-text');
+            let input_val = input.value;
+
+            const div = document.createElement('div');
+            div.classList.add('message', 'outgoing');
+            if (input_val != '') {
+                div.innerHTML = input_val;
+                msg_container.appendChild(div);
+                setTimeout(() => {
+                    const msg_container = document.getElementById('msg-container')
+                    const div_incoming = document.createElement('div');
+                    div_incoming.classList.add('message', 'incoming');
+                    div_incoming.innerHTML = 'Thinking..';
+                    msg_container.appendChild(div_incoming);
+    
+                    generateData();
+    
+                }, 200);
+
+            }
+            
+
+            input.value = '';
+
+            const generateData = () => {
+
+
+
+                let usermessage = input_val;
+                const apiKey = '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';
+                const apiUrl = 'https://api.openai.com/v1/chat/completions';
+                const reqestOption = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${apiKey}`
+                    },
+                    body: JSON.stringify({
+                        model: 'gpt-3.5-turbo',
+                        message: [{ role: 'user', content: usermessage }]
+                    })
+                }
+                fetch(apiUrl, reqestOption)
+                    .then(res => res.json()).then(data => {
+                        console.log(data);
+                    })
+                console.log("This is user message", usermessage);
+
+            }
+
+        }
+        button.addEventListener('click', appendtext);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Input Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 5px;
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        #output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Information Form</h1>
+    <form id="studentForm">
+        <table>
+            <tr>
+                <th>Roll</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Class</th>
+            </tr>
+            <tr>
+                <td><input type="text" name="roll" required></td>
+                <td><input type="text" name="name" required></td>
+                <td><input type="text" name="address" required></td>
+                <td><input type="text" name="phone" required></td>
+                <td><input type="text" name="class" required></td>
+            </tr>
+        </table>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="output"></div>
+    <script>
+        document.getElementById('studentForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const form = event.target;
+            const roll = form.roll.value;
+            const name = form.name.value;
+            const address = form.address.value;
+            const phone = form.phone.value;
+            const className = form.class.value;
+
+            const output = document.getElementById('output');
+            output.innerHTML = `
+                <h2>Submitted Information</h2>
+                <p><strong>Roll:</strong> ${roll}</p>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Address:</strong> ${address}</p>
+                <p><strong>Phone:</strong> ${phone}</p>
+                <p><strong>Class:</strong> ${className}</p>
+            `;
+        });
+    </script>
+</body>
+</html>
