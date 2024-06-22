@@ -112,11 +112,6 @@
         let passwordBox = document.getElementById("input-field");
         function genPassword(){
             let password = "";
-            password += sAlpha[Math.floor(Math.random()*sAlpha.length)];
-            password += cAlpha[Math.floor(Math.random()*cAlpha.length)];
-            password += nums[Math.floor(Math.random()*nums.length)];
-            password += symbols[Math.floor(Math.random()*symbols.length)];
-            
             while(password.length<=12){
                 password += allChars[Math.floor(Math.random()*allChars.length)];
                 
