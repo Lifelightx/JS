@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallary</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: poppin;
+        }
+        html,body{
+            height: 100%;
+            width: 100%;
+        }
+        body {
+            background: #191919;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .gallery {
+            height: auto;
+            width: 900px;
+            display: flex;
+            overflow-x: scroll;
+            scroll-behavior: smooth;
+        }
+        
+        
+        .gallery::-webkit-scrollbar{
+            display: none;
+        }
+        .gallery div{
+            padding: 20px;
+        }
+        .span{
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-gap: 20px;
+        }
+        .btnImg{
+            cursor: pointer;
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            filter: grayscale(0);
+        }
+        img {
+            cursor: pointer;
+            filter: grayscale(1);
+            gap: 15px;
+            height: 470px;
+            width: 290px;
+            object-fit: cover;
+            transition: all 0.3s ease-in-out;;
+        }
+        img:hover {
+            filter: grayscale(0);
+            transform: scale(1.03);
+        }
+        .wrap{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+        #backBtn{
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <img class="btnImg" id="backBtn" class="rotateImg" src="https://img.freepik.com/premium-vector/turn-glyph-icon-icon_1076610-16926.jpg?w=740" alt="">
+        <div class="gallery">
+            <div>
+                <span class="span">
+                    <img src="https://ideogram.ai/assets/progressive-image/balanced/response/7R3f1MZ-RkGgtW0s_74Lvw" alt="">
+                    <img src="https://ideogram.ai/assets/progressive-image/balanced/response/vrwGkyJUSgGZmQkNmGO14A" alt="">
+                    <img src="https://ideogram.ai/assets/progressive-image/balanced/response/m5h0Dnk6SAmyvEqU3z4dOg" alt="">
+                </span>
+            </div>
+            <div>
+                <span class="span">
+                    <img src="https://ideogram.ai/assets/progressive-image/balanced/response/sxaoP5AkQuKSOtR3VMe3DQ"
+                        alt="">
+                        <img src="https://ideogram.ai/assets/progressive-image/balanced/response/HSxNpoDGR_ezrhFOh4LZ5w" alt="">
+                        <img src="https://ideogram.ai/assets/progressive-image/balanced/response/0ySRukEeRMap2Yf8T4SSuw" alt="">
+                    </span>
+            </div>
+        </div>
+        <img class="btnImg" id="nextBtn" src="https://img.freepik.com/premium-vector/turn-glyph-icon-icon_1076610-16926.jpg?w=740" alt="">
+    </div>
+    <script>
+        const scrollContainer = document.querySelector('.gallery')
+        const backBtn = document.getElementById('backBtn')
+        const nextBtn = document.getElementById('nextBtn')
+        scrollContainer.addEventListener('wheel',(e)=>{
+            e.preventDefault();
+            scrollContainer.scrollLeft += e.deltaY;
+        })
+        nextBtn.addEventListener('click',()=>{
+            scrollContainer.scrollLeft += scrollContainer.offsetWidth;
+        })
+        backBtn.addEventListener('click',()=>{
+            scrollContainer.scrollLeft -= scrollContainer.offsetWidth;
+        })
+    </script>
+</body>
+
+</html>
