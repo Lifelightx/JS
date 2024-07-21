@@ -97,17 +97,15 @@
         let author = document.getElementById("author");
         async function genQoute(){
             
-            const api_key = "475b7f26ec36ecf2f9012c1216cc763b";
-            let url = "https://api.quotable.io/random";
+            let url = "https://cors-anywhere.herokuapp.com/https://zenquotes.io/api/random";
             const response = await fetch(url);
             var data = await response.json();
             console.log(data);
             console.log(data.author);
-            qoute.innerHTML = '" '+data.content+' "';
-            author.innerHTML = '-'+data.author;
+            qoute.innerHTML = '" '+data[0].q+' "';
+            author.innerHTML = '-'+data[0].a;
 
         }
-
     </script>
 </body>
 </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        *{
+            font-family: poppins;
+            color: rgb(33, 25, 89);
+        }
+    </style>
+</head>
+<body>
+    <h2>BackGround Changer</h2>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+
+    <script>
+        const startBtn = document.querySelector('#start')
+        const stopBtn = document.querySelector('#stop')
+        function bgChange(){
+            const r = Math.floor(Math.random()*256)
+            const g = Math.floor(Math.random()*256)
+            const b = Math.floor(Math.random()*256)
+            document.body.style.backgroundColor = `rgb(${r},${g},${b})`
+        }
+        let setIn;
+        startBtn.addEventListener('click',()=>{
+            if(!setIn){
+                setIn = setInterval(bgChange,1000);
+            }
+            
+        })
+        stopBtn.addEventListener('click', ()=>{
+            clearInterval(setIn);
+            setIn = null;
+        })
+    </script>
+</body>
+</html>

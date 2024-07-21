@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: poppins;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: blueviolet; font-family:poppins">Hello My Js Class</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <div id="container"></div>
+    <script>
+        const startBtn = document.querySelector('#start')
+        const stopBtn = document.querySelector('#stop')
+        const container = document.querySelector('#container')
+        function startPrint(){
+            const para = document.createElement('p');
+            para.innerHTML = 'Welcome to JavaScript';
+            para.style.color = 'blueviolet'
+            container.appendChild(para);
+        }
+        startBtn.addEventListener('click',()=>{
+            const interVal = setInterval(startPrint,2000);
+            stopBtn.addEventListener('click',()=>{
+                clearInterval(interVal);
+            })
+        })
+    </script>
+</body>
+</html>
