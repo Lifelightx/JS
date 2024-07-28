@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textify</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+            font-family: poppins;
+            
+        }
+        body {
+            background: #ede8f5;
+             font-family: Arial, sans-serif; 
+             height: 100vh;
+            }
+        .header{
+            color: #391470;
+            position:fixed;
+            top: 0;
+            padding: 10px;
+            text-align: center;
+            font-size: 16px;
+            width: 100%;
+            text-align: left;
+            background: #ffffff;
+            box-shadow: 1px 1px 8px rgb(135, 135, 135);
+            border: none;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        #headerImg{
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .container{
+            width: 650px;
+            margin: 150px auto;
+        }
+        
+        #result, #translatedResult {
+             margin-top: 20px; 
+             height: 400px;
+             border: 1px dashed grey;
+             display: flex;
+             flex-direction: column;
+             justify-content: center;
+             align-content: center;
+             padding: 20px;
+             border-radius: 10px;
+             text-align: left;
+             transition: all 0.5s ease-in-out;
+            }
+            #result::-webkit-scrollbar{
+                scrollbar-width: thin;
+            }
+        #progress , #progressT {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+             margin: 20px auto;
+             height: 40px;
+
+             display: none;
+            }
+            
+            .progress-bar, .progress-barT {
+            width: 350px;
+            height: 8px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin:10px auto;
+        }
+        .progress-bar-inner, .progress-bar-innerT {
+            height: 20px;
+            width: 0;
+            background-color: #230657;
+            transition: width 0.2s;
+        }
+
+        #copyBtn{
+            display: flex;
+            margin: 10px auto;
+            justify-content: center;
+            align-items: center;
+        }
+        #copyBtn button{
+            width: 100%;
+            height: 40px;
+            outline: none;
+            border: 1px solid #0056b3;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: #c7d3f9;
+            transition: all 0.2s ease-in-out;
+        }
+        #copyBtn button:hover{
+            background-color: #230657;
+            color: white;
+        }
+        #copyText{
+            color: #00c18a;
+            padding: 0 10px;
+        }
+        #extractor{
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        #extractTextButton{
+            background-color:#230657;
+            color: #ffffff;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            padding:10px 20px;
+            border-radius: 20px;
+        }
+        #imageInput{
+            outline: none;
+            border-radius: 30px;
+            padding: 10px;
+            color:#041656;
+            box-shadow: 5px 5px 10px grey;
+            background-color:rgb(201, 143, 255);
+            cursor: pointer;
+        }
+        ::-webkit-file-upload-button{
+            color: white;
+            background-color: #041656;
+            border: none;
+            padding: 0 20px;
+            height: 40px;
+            border-radius: 20px;
+            font-family: poppins;
+            font-weight: 200;
+            outline: none;
+        }
+        
+        i{
+            font-size: 16px;
+            margin-left: 5px;
+            font-weight: bolder;
+            color: rgb(0, 230, 92);
+        }
+        .select-container {
+            position: relative;
+            width: 120px;
+            margin: 20px 0;
+        }
+
+        .styled-select {
+            width: 100%;
+            padding: 8px 10px;
+            border: 2px solid #041656;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #333;
+            font-size: 14px;
+            appearance: none; /* Remove default styling */
+            -webkit-appearance: none; /* Safari and Chrome */
+            -moz-appearance: none; /* Firefox */
+            cursor: pointer;
+        }
+
+        .select-container::after {
+            content: '\25BC'; /* Unicode character for downward triangle (▼) */
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            pointer-events: none; /* So the icon doesn't block clicks */
+            font-size: 16px;
+            color: #041656;
+        }
+
+        .styled-select option {
+            background-color: #fff;
+            color: #333;
+        }
+
+        /* Optional: Hover and focus styles */
+        .styled-select:hover, .styled-select:focus {
+            border-color: #0056b3;
+            outline: none;
+        }
+        .trans-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        #translateButton{
+            padding: 8px 15px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            background: #041656;
+            color: white;
+            font-weight: 200;
+            border-radius: 20px;
+        }
+        #transBtnI{
+            color: #2c1507;
+            background-color: white;
+            border-radius: 50%;
+            padding: 4px 5px;
+        }
+        #translatedResult{
+            font-size: 14px;
+            font-weight: 200;
+            text-align: center;
+            word-wrap: break-word;
+        }
+        footer {
+            width: 100%; /* Ensure the footer takes full width */
+            margin-top: auto; /* Push footer to the bottom */
+            background: #160e28;
+            color: whitesmoke;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2px;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: center;
+            height: 60px;
+            font-weight: 200;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #ff6200;
+            font-weight: 400;
+            
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                padding: 10px;
+                font-size: 14px;
+            }
+            #headerImg {
+                height: 40px;
+                width: 40px;
+            }
+            #extractor{
+                flex-direction: column;
+                gap: 20px;
+            }
+            .container {
+                width: 95vw;
+                margin: 100px auto;
+                padding: 10px;
+            }
+            #result, #translatedResult {
+                height: 300px;
+            }
+            #copyBtn button {
+                width: 80%;
+            }
+            .select-container {
+                width: 100px;
+            }
+            .styled-select {
+                font-size: 12px;
+            }
+            footer{
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img id="headerImg" src="https://ideogram.ai/assets/progressive-image/balanced/response/2JfLJdnrRjiVbwMRSBoFyA" alt="">
+        <h2>Text Extractor</h2>
+    </div>
+    <div class="container">
+        <h1 style="text-align: center; color:rgb(70, 63, 98); font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"><strong>JPG</strong> to <strong>TEXT</strong></h1> 
+        <p style="text-align: center; font-weight:200;color:#000000;font-size:14px; ">Extract text from Images in seconds</p>
+        <div id="extractor">
+            <input type="file" id="imageInput" accept="image/*">
+            <button id="extractTextButton">Extract Text <i class="fas fa-arrow-right"></i></button>
+        </div>
+        <div id="progress">
+            <div class="progress-bar">
+                <div class="progress-bar-inner" id="progressBar"></div>
+            </div>
+            <p id="progressText"></p>
+        </div>
+        <div id="result" style="text-align: left;padding:10px; font-weight:200;color:#0b0a0d;font-size:14px;" >Text will apper Here</div>
+        <div id="copyBtn">
+            <button onclick="copyText()"><i id="copyText" class="fas fa-copy"></i>Copy</button>
+        </div>
+        <div class="trans-container">
+            <div class="select-container">
+                <select id="languageSelect" class="styled-select">
+                    <option value="en">English</option>
+                    <option value="hi">Hindi</option>
+                    <option value="bn">Bengali</option>
+                    <option value="or">Odia</option>
+                </select>
+            </div>
+            <button id="translateButton">Translate <i id="transBtnI" class="fas fa-arrow-right"></i></button>
+        </div>
+       
+        <div id="progressT">
+            <div class="progress-barT">
+                <div class="progress-bar-innerT" id="progressBarT"></div>
+            </div>
+            <p id="progressTextT"></p>
+        </div>
+        
+    
+        <div id="translatedResult">
+            Translated text will apear here
+        </div>
+        <div id="copyBtn">
+            <button onclick="copyTranslatedText()"><i id="copyText" class="fas fa-copy"></i>Copy</button>
+        </div>
+    </div>
+
+    <footer>
+        <span id="copy">2024</span> <p>Textify. All rights reserved. Designed by</p> <a href="https://www.linkedin.com/in/jeebanjyoti/">Jeebanjyoti</a>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@2.1.5/dist/tesseract.min.js"></script>
+    <script>
+
+
+        var commingText = '';
+        document.getElementById('extractTextButton').addEventListener('click', function() {
+            const imageInput = document.getElementById('imageInput');
+            const resultDiv = document.getElementById('result');
+            const progressDiv = document.getElementById('progress');
+            const progressBar = document.getElementById('progressBar');
+            const progressText = document.getElementById('progressText');
+
+            resultDiv.innerText = '';
+            progressBar.style.width = '0';
+            progressText.innerText = '';
+
+            if (imageInput.files && imageInput.files[0]) {
+                progressDiv.style.display = 'block';
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    Tesseract.recognize(
+                        e.target.result,
+                        'eng',
+                        {
+                            logger: m => {
+                                if (m.status === 'recognizing text') {
+                                    const progress = m.progress * 100;
+                                    progressBar.style.width = progress + '%';
+                                    progressText.innerText = `Progress: ${progress.toFixed(2)}% - ${m.status}`;
+                                }
+                            }
+                        }
+                    ).then(({ data: { text } }) => {
+                        resultDiv.innerText = text;
+                        resultDiv.style.width = '100%';
+                        resultDiv.style.overflowY = 'auto';
+                        commingText = text;
+                        progressBar.style.width = '100%';
+                        progressBar.style.fontSize = '16px';
+                        progressText.style.color = '#009471';
+                        progressText.innerText = 'Completed';
+                    }).catch(err => {
+                        resultDiv.innerText = `Error: ${err}`;
+                        progressBar.style.width = '0';
+                        progressText.innerText = 'Error occurred';
+                    });
+                };
+                reader.readAsDataURL(imageInput.files[0]);
+            } else {
+                resultDiv.innerText = 'Please select an image file first.';
+            }
+        });
+        function copyText(){
+            const textToCopy = document.getElementById('result').innerText;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                alert('Text copied successfully');
+            }, () => {
+                alert('Failed to copy text');
+            });
+        }
+
+        document.getElementById('translateButton').addEventListener
+        ('click', function() {
+            
+            const textToTranslate = commingText;
+            if(textToTranslate === "" || textToTranslate === undefined){
+                alert("Please Upload An Image first");
+                return;
+            }
+            const targetLanguage = document.getElementById('languageSelect').value;
+            console.log(targetLanguage);
+            const translatedResultDiv = document.getElementById('translatedResult');
+            const progressBar = document.getElementById('progressBarT');
+            const progressText = document.getElementById('progressTextT');
+            const progressDiv = document.getElementById('progressT');
+
+            // Start showing progress
+            progressDiv.style.display = 'block';
+            progressBar.style.width = '0%';
+            progressText.innerText = 'Translating...';
+
+            const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(textToTranslate)}&langpair=en|${targetLanguage}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    // Simulate progress (Optional, you can remove this if not needed)
+                    progressBar.style.width = '50%';
+                    progressText.innerText = 'Processing translation...';
+
+                    // Process translation
+                    setTimeout(() => {
+                        progressBar.style.width = '100%';
+                        progressText.innerText = 'Translation complete';
+
+                        // Extract translations from response
+                        const matches = data.matches;
+                        if (matches && matches.length > 0) {
+                            // Sort matches by quality or other criteria
+                            matches.sort((a, b) => b.quality - a.quality);
+
+                            // Get the best match
+                            const bestMatch = matches[0];
+                            const translatedText = bestMatch.translation;
+
+                            // Display translated text
+                            translatedResultDiv.innerText = translatedText;
+                        } else {
+                            translatedResultDiv.innerText = 'No translation found';
+                        }
+                    }, 500); // Delay to simulate progress (Optional)
+                })
+                .catch(err => {
+                    progressBar.style.width = '0%';
+                    progressText.innerText = 'Error occurred';
+                    translatedResultDiv.innerText = `Error: ${err}`;
+                });
+        });
+        function copyTranslatedText(){
+            const textToCopy = document.getElementById('translatedResult').innerText;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                alert('Translated text copied successfully');
+            }, () => {
+                alert('Failed to copy translated text');
+            });
+        }
+
+        const span = document.querySelector('#copy')
+        date = new Date()
+        span.innerText = "©"+ date.getFullYear();
+    </script>
+</body>
+</html>

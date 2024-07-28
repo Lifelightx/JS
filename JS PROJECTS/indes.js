@@ -1,15 +1,14 @@
-//operator
-
-let date = new Date();
-
-console.log(date.getTime());
-function fn(){
-    sum = 0;
-
-    for (let i = 0; i <100000; i++) {
-    sum = sum + i;
+const obj = {
+    {
+        name: "John",
+        age: 30,
+    },
+    {
+        name: "Jane",
+        age: 28
+    },
+    { 
+        name: "Tom",
+        age: 32
+    }
 }
-}
-fn();
-//let dat1 = new Date();
-console.log(date.getTime());
