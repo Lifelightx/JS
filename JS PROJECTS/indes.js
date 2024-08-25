@@ -12,3 +12,4 @@ const obj = {
         age: 32
     }
 }
+let 
