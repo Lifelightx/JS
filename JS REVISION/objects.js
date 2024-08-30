@@ -1,9 +1,14 @@
 let obj = {}
 
-arr = [1,2,3,3,3,5,6,6,7,7,7,7,5,7]
+arr = [2,2,3,3,3,3,1,1,1,1]
 
 arr.forEach(element => {
-    obj[element] = (obj[element] || 0 ) + 1
+    if(obj[element] ){
+        obj[element] = obj[element]+ 1
+    }
+    else{
+        obj[element] = 1
+    }
 })
 
 console.log(obj)

@@ -4,12 +4,12 @@ const cors = require('cors')
 const reactUser = require('./models/user')
 const app = express()
 port = 4000;
-mongoose.connect('mongodb://127.0.0.1:27017/reactApp').then( () => console.log('connection established'))
+mongoose.connect('mongodb+srv://jeebanjyotimallik:Jeebanjyoti%40123@reactfullstackpractice1.rn9lr.mongodb.net/user').then( () => console.log('connection established'))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 app.use(cors());
-app.get('/', function(req, res){
+app.get('/jokes', function(req, res){
     res.send(
         [
             {
@@ -75,6 +75,7 @@ app.get('/', function(req, res){
     )
 })
 
+
 app.post('/', async(req, res)=>{
    await reactUser.create({
     name: req.body.name,
@@ -94,6 +95,7 @@ app.post('/login', async(req, res)=>{
   }
   else if(password == user.password && email == user.email){
     return res.json({status: true})
+    
   }
 
 })
