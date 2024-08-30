@@ -12,3 +12,14 @@ arr.forEach(element => {
 })
 
 console.log(obj)
+
+
+let mt = 'Jeeban'
+obj = {
+    name: mt
+}
+
+
+obj.name = 'Rabbit'
+
+console.log(mt)
